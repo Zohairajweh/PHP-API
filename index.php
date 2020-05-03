@@ -4,12 +4,12 @@
   // Convert the response to a PHP object.
   $SoccerObject = json_decode( $SoccerJSONString );
   // Collect the first user in the results array.
-  $Soccer = $SoccerObject[1];
-  $videos = $Soccer->videos[1];
+  $Soccer = $SoccerObject[9];
+  $videos = $Soccer->videos[0];
 
   // $routes = $stops->routes[1];
   // $stop_times = $routes->stop_times[1];
-
+ 
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,44 +20,35 @@
 <body>
   <h1>Scorebat</h1>
   
-  <dl>
-    <dd>
-      <dt>Title :</dt>
-      <?php echo $Soccer->title; ?>
-      <dt>Embed :</dt>
+      <!-- <dt>Title :</dt> -->
+      <h1> <?php echo $Soccer->title; ?><h1>
+      <!-- <dt>Embed :</dt> -->
       <?php echo $Soccer->embed;?>
-      <dt>URL :</dt>
-      <a href="<?php echo $Soccer->url;?>">Visit scorebat.com</a>
-      <dt>Thumbnail :</dt>
-      <dd><img src="<?php echo $Soccer->thumbnail; ?>"></dd>
-      <dt>Date :</dt>
-      <?php echo $Soccer->date;?>
-      <dt>Side1 :</dt>
-      <dt>Name :</dt>
+      <!-- <dt>URL :</dt> -->
+      <a href="<?php echo $Soccer->url;?>">Click here</a>
+      <!-- <dt>Thumbnail :</dt> -->
+      <img src="<?php echo $Soccer->thumbnail; ?>">
+      <h3>Date : <?php echo $Soccer->date;?></h3>
+      
+      <!-- <dt>Side1 :</dt>
+      <dt>Name :</dt> -->
       <?php echo $Soccer->side1->name;?>
-      <dt>URL :</dt>
-      <a href="<?php echo $Soccer->side1->url;?>">Visit side1 URL</a>
-      <dt>Side2 :</dt>
-      <dt>Name :</dt>
-      <?php echo $Soccer->side2->name;?>
-      <dt>ID:</dt>
-      <?php echo $Soccer->side2->id;?>
-      <dt>URL :</dt>
-      <a href="<?php echo $Soccer->side2->url;?>">Visit side2 URL</a>
-      <dt>Competition :</dt>
-      <dt>Name :</dt>
+      <!-- <dt>URL :</dt> -->
+      <a href="<?php echo $Soccer->side1->url;?>">Click here</a>
+      <!-- <dt>Side2 :</dt>
+      <dt>Name :</dt> -->
+      <p><strong><?php echo $Soccer->side2->name;?></strong></p>
+      
+      <!-- <dt>URL :</dt> -->
+      <a href="<?php echo $Soccer->side2->url;?>">Click here</a>
+      <!-- <dt>Competition :</dt>
+      <dt>Name :</dt> -->
       <?php echo $Soccer->competition->name;?>
-      <dt>Id :</dt>
-      <?php echo $Soccer->competition->id;?>
-      <dt>URL :</dt>
-      <a href="<?php echo $Soccer->competition->url;?>">Visit competition URL :</a>
-      <dt>Videos :</dt>
-      <dt>Title :</dt>
-      <?php echo $videos->title;?>
-      <dt>Embed :</dt>
+      <h3>Id : <?php echo $Soccer->competition->id;?> </h3>
+      
+      <a href="<?php echo $Soccer->competition->url;?>">Click here</a> 
+      <?php echo $videos->videos;?>
       <?php echo $videos->embed;?>
-    </dd>
-
 </body>
 </html>
 
